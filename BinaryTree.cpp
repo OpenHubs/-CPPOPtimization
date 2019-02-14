@@ -88,6 +88,12 @@ void BinaryTree<T>::PostOrder()
 	postOrder(root);
 }
 
+//获得树的深度
+template<typename T>
+int BinaryTree<T>::GetTreeDepth()
+{
+	return GetTreeDepth(root);
+}
 
 
 //获得节点的父节点
@@ -338,9 +344,14 @@ void BinaryTree<T>::postOrder(BinaryNode* bNode)const
 }
 
 
-
+//2019.2.13--Get the depth of BT
 template<typename T>
-int BinaryTree<T>::GetTreeDepth(BinaryNode* bNode)
+int BinaryTree<T>::GetTreeDepth(BinaryNode* &bNode)
 {
+	if (bNode == NULL) return 0;
 
+	int left_depth = GetTreeDepth(bNode->left_node);
+	int right_depth = GetTreeDepth(bNode->right_node);
+	
+	return left_depth > right_depth ? (left_depth+ 1) : (right_depth + 1);
 }

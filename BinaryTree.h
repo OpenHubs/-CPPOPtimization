@@ -22,7 +22,7 @@ public:
 	void PreOrder();
 	void InOrder();
 	void PostOrder();
-
+	int GetTreeDepth();
 
 
 private:
@@ -75,7 +75,7 @@ private:
 	BinaryNode * GetParentNode(BinaryNode *bNode, BinaryNode* &subTree);
 
 	//获得树的深度（左子树的深度，右子树的深度）
-	int GetTreeDepth(BinaryNode* bNode);
+	int GetTreeDepth(BinaryNode* &bNode);
 };
 
 
